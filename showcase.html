@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Demo Site</title>
+
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+
+    <link
+      rel="stylesheet"
+      media="only screen and (min-width:720px)"
+      href="css/desktop.css"
+    />
+
+    <script src="js/main.js" defer></script>
+
+  </head>
+
+    <body>
+
+    <div class="container">
+
+      <header>
+        <h1 id="myHeading">My Demo Site</h1>
+      </header>
+
+      <div class="main">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="exchangeRate.html">Exchange Calculator</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li><a href="showcase.html">Showcase</a></li>
+          </ul>
+        </nav>
+
+        <div class="content">
+
+
+
+                <!-- This Page Contains Examples Of JavaScript Integration. Not All Good Practices Are Applied.-->
+
+                <!-- USE CASE: using ev to identify and select based-on clicked element: -->
+                 <h3>Identifying Clicked Elements Using JavaScript</h3>
+                 <p>Check Console Whilst Clicking Buttons</p>
+                <button class="myButton">Button 1</button>
+                <button class="myButton">Button 2</button>
+                <button class="myButton">Button 3</button>
+                <script>
+                const buttons = document.querySelectorAll('.myButton');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', function(ev) {
+                    console.info(`Button clicked: ${ev.target.textContent}`);
+                    });
+                });
+                </script>
+
+                <br />
+                <br />
+                <br />
+                
+                <!-- USE CASE: Form Using JavaScript For Validation (ev.preventDefault();) -->
+                <form id="myForm">
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <button type="submit">Submit</button>
+                </form>
+
+                <script>
+                const form = document.getElementById('myForm');
+                const errMsg = document.getElementById('errMsg');
+
+                form.addEventListener('submit', (ev) => {
+                    const nameInput = document.getElementById('name');
+
+                    if (nameInput.value.trim() === '') {
+                    errMsg.innerText('Name is required!');
+                    ev.preventDefault(); // Prevent form submission
+                    }
+                });
+                </script>
+
+
+
+            </div>
+
+      </div>
+
+      <footer>&copy; 2024 mustbebuilt</footer>
+
+    </div>
+
+  </body>
+
+</html>
